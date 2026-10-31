@@ -1,0 +1,11 @@
+name: 💡 想要新功能
+description: 希望叮叮会做什么新事情？
+title: "[想法] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: 想让叮叮做什么？
+    validations:
+      required: true

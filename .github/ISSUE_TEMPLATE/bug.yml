@@ -1,0 +1,50 @@
+name: 🐞 反馈问题
+description: 叮叮哪里不对劲？告诉我们，我们来修
+title: "[问题] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        谢谢你来反馈！填得越清楚，修得越快～
+        **请不要贴出你的 API key、config.txt、日记或聊天记录里的私人内容。**
+  - type: dropdown
+    id: os
+    attributes:
+      label: 用的是什么电脑？
+      options:
+        - Windows
+        - Mac（Apple 芯片：M1/M2/M3/M4…）
+        - Mac（Intel 芯片）
+        - 不知道
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: 系统版本
+      description: 比如 Windows 11、macOS 14 Sonoma（不知道可以不填）
+  - type: textarea
+    id: what
+    attributes:
+      label: 出了什么问题？
+      description: 你做了什么、本来以为会怎样、实际发生了什么
+      placeholder: 比如：Claude 做完任务了，叮叮没有摇铃
+    validations:
+      required: true
+  - type: input
+    id: ai
+    attributes:
+      label: 和哪个 AI 有关？
+      description: 比如 Claude 桌面版、网页版 ChatGPT、DeepSeek、WorkBuddy（没关系就不填）
+  - type: textarea
+    id: diag
+    attributes:
+      label: 诊断结果
+      description: 右键叮叮 →「检测诊断」，会在叮叮的文件夹里生成「诊断结果.txt」，把里面的内容贴在这里（识别 AI 有问题时特别有用）
+      render: text
+  - type: textarea
+    id: shots
+    attributes:
+      label: 截图
+      description: 可以直接把截图拖进这个框里
