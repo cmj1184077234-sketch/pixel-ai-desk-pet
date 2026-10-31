@@ -1,5 +1,5 @@
 name: 🐞 反馈问题
-description: 叮叮哪里不对劲？告诉我们，我们来修
+description: 叮叮哪里不对劲、坏了、识别错了（想要新功能请选「新功能建议」）
 title: "[问题] "
 labels: ["bug"]
 body:
