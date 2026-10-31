@@ -1,0 +1,17 @@
+Sources/Pet.swift:7:9: error: type member must not be named 'Type', since it would conflict with the 'foo.Type' expression
+Sources/Pet.swift:7:9: note: if this name is unavoidable, use backticks to escape it
+error: fatalError
+Sources/Agent.swift:1426:13: warning: 'allowedFileTypes' was deprecated in macOS 12.0: Use -allowedContentTypes instead
+        dlg.allowedFileTypes = ["jpg", "jpeg", "png", "bmp", "gif", "webp", "heic", "tiff"]
+            ^
+Sources/Features.swift:875:13: warning: 'allowedFileTypes' was deprecated in macOS 12.0: Use -allowedContentTypes instead
+        dlg.allowedFileTypes = ["jpg", "jpeg", "png", "bmp", "gif", "webp", "heic", "tiff"]
+            ^
+Sources/Pet.swift:7:9: error: type member must not be named 'Type', since it would conflict with the 'foo.Type' expression
+    var Type = ""
+        ^
+Sources/Pet.swift:7:9: note: if this name is unavoidable, use backticks to escape it
+    var Type = ""
+        ^~~~
+        `Type`
+error: fatalError
