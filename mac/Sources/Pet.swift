@@ -4,7 +4,7 @@ import Foundation
 // ---------- 叮叮主体：窗口、物理、动作（对应 Windows 版的 Pet.cs） ----------
 
 final class Particle {
-    var Type = ""
+    var Kind = ""
     var X = 0.0, Y = 0.0, VX = 0.0, VY = 0.0, Life = 0.0
 }
 
@@ -386,7 +386,7 @@ final class PetForm: NSObject {
     // ---------- 状态切换 ----------
     func Set(_ s: String) {
         state = s; since = now
-        parts.removeAll { $0.Type == "z" }
+        parts.removeAll { $0.Kind == "z" }
         if s == "done" { Spawn("spark", 9) }
         if s == "party" { Spawn("conf", 14) }
         StateSound(s)
@@ -761,8 +761,8 @@ final class PetForm: NSObject {
         while i >= 0 {
             let p = parts[i]
             p.Life -= dt; p.X += p.VX * dt; p.Y += p.VY * dt
-            if p.Type == "spark" || p.Type == "speck" || p.Type == "crumb" { p.VY += 4 * dt }
-            if p.Type == "orange" { p.VY += 18 * dt; if p.Y >= 10.25 { p.Life = 0; Set("eat") } }
+            if p.Kind == "spark" || p.Kind == "speck" || p.Kind == "crumb" { p.VY += 4 * dt }
+            if p.Kind == "orange" { p.VY += 18 * dt; if p.Y >= 10.25 { p.Life = 0; Set("eat") } }
             if p.Life <= 0 && i < parts.count { parts.remove(at: i) }
             i -= 1
         }
@@ -785,13 +785,13 @@ final class PetForm: NSObject {
 
     func Spawn(_ type: String, _ n: Int) {
         for i in 0..<n {
-            let p = Particle(); p.Type = type; p.Life = 1.2 + rnd.NextDouble() * 0.6
+            let p = Particle(); p.Kind = type; p.Life = 1.2 + rnd.NextDouble() * 0.6
             let r1 = rnd.NextDouble(), r2 = rnd.NextDouble()
             switch type {
             case "spark":
                 let left = i % 2 == 0
                 p.X = left ? -2 + r1 * 3 : 14 + r1 * 2; p.Y = 2 + r2 * 5; p.VX = (left ? -1 : 1) * (0.5 + r1); p.VY = -2 - r2 * 2
-                if i % 3 == 2 { p.Type = "speck" }
+                if i % 3 == 2 { p.Kind = "speck" }
             case "heart": p.X = 12 + r1 * 2; p.Y = 4; p.VX = 0.6; p.VY = -2
             case "z": p.X = 12.5; p.Y = 4; p.VX = 0.8; p.VY = -1.2; p.Life = 2.2
             case "note": p.X = rnd.Next(2) == 0 ? -1 : 14.5; p.Y = 5; p.VX = 0; p.VY = -2

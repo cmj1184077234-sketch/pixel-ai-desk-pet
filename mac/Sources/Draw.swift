@@ -456,8 +456,8 @@ extension PetForm {
 
     func DrawParticles(_ n: Double) {
         for p in parts {
-            if p.Life < 0.3 && I(n * 12) % 2 == 1 && p.Type != "dust" { continue }
-            switch p.Type {
+            if p.Life < 0.3 && I(n * 12) % 2 == 1 && p.Kind != "dust" { continue }
+            switch p.Kind {
             case "spark": Bits(SPARK, p.X, p.Y, 0.5, GOLD)
             case "speck": U(p.X, p.Y, 1, 1, SPECK)
             case "heart": Bits(HEART, p.X, p.Y, 0.35, PINK)
