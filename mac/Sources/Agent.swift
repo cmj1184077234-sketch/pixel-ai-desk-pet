@@ -985,7 +985,7 @@ extension PetForm {
             return EditMyCode(Str(input, "file").Trim, Str(input, "find"), Str(input, "replace"), Str(input, "why"), &isErr)
         case "restart_self":
             if !upgradePending { return "还没有改过代码，不用重启。" }
-            OnMain { self.Say("我去升级一下，马上回来！", 3); After(2.5) { self.RestartSelf() } }
+            OnMain { self.Say("我去升级一下，马上回来！", 3); Later(2.5) { self.RestartSelf() } }
             return "好的，马上开始重新编译，编好了就重启。"
         case "make_thing", "make_pet", "make_person", "make_skin":
             var sk = input

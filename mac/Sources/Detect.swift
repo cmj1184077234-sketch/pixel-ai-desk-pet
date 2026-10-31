@@ -74,7 +74,7 @@ enum AX {
         return AXIsProcessTrustedWithOptions(opts)
     }
     /// Electron（Claude 桌面版等）和 Chrome 默认不把网页里的按钮告诉辅助功能，要先打开
-    static var woken = Set<Int32>()
+    static var woken = Swift.Set<Int32>()
     static func Wake(_ pid: Int32, _ app: AXUIElement, browser: Bool) {
         if woken.contains(pid) { return }
         woken.insert(pid)
@@ -154,7 +154,7 @@ enum Detector {
     static var stopRects: [String: RectI] = [:]
     static var stopName = ""
     static var busyNow: [String] = []
-    static var cpuDetected = Set<String>()
+    static var cpuDetected = Swift.Set<String>()
     static var detectFrozen = false   // 只给测试用
     static func Ignored(_ app: String, _ name: String) -> Bool { lock.lock(); defer { lock.unlock() }; return ignoreButtons.contains(app + "|" + name) }
     static func stopRectsCopy() -> [String: RectI] { lock.lock(); defer { lock.unlock() }; return stopRects }
@@ -204,7 +204,7 @@ enum Detector {
     // ---------- 没有“停止”按钮的 AI（比如 WorkBuddy 这类智能体）：看它是不是在持续占用 CPU ----------
     static var cpuLast: [String: Double] = [:]
     static var cpuHist: [String: [Bool]] = [:]
-    static var cpuOn = Set<String>()
+    static var cpuOn = Swift.Set<String>()
     static var cpuLastAt: Double = 0
     static var timebase: Double = {
         var tb = mach_timebase_info_data_t(); mach_timebase_info(&tb)

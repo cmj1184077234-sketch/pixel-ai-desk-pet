@@ -9,7 +9,7 @@ struct BrainState {
     var usedLines: [String] = []
 }
 
-let STOP_CHARS: Set<Character> = ["，", "。", "！", "？", ",", ".", "!", "?", "~", "～", "；", ";", "\n", " "]
+let STOP_CHARS: Swift.Set<Character> = ["，", "。", "！", "？", ",", ".", "!", "?", "~", "～", "；", ";", "\n", " "]
 
 func Has(_ m: String, _ ks: String...) -> Bool { ks.contains { m.contains($0) } }
 

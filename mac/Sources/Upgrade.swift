@@ -97,7 +97,7 @@ extension PetForm {
         }
         var lines: [String] = []
         var last = ""
-        let skip: Set<String> = ["AXButton", "AXMenuItem", "AXMenuButton", "AXPopUpButton", "AXRadioButton", "AXCheckBox", "AXImage", "AXScrollBar", "AXTabGroup", "AXToolbar"]
+        let skip: Swift.Set<String> = ["AXButton", "AXMenuItem", "AXMenuButton", "AXPopUpButton", "AXRadioButton", "AXCheckBox", "AXImage", "AXScrollBar", "AXTabGroup", "AXToolbar"]
         AX.Walk(pick.2, maxNodes: 6000, deadline: Date().timeIntervalSince1970 + 5) { e, role in
             if skip.contains(role) { return false }
             var t = ""

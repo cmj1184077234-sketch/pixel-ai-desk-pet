@@ -85,7 +85,7 @@ final class PetForm: NSObject {
     var keyEvents: [Double] = []
     var lastShakeReact = 0.0, hoverSince = -1.0, lastHoverReact = 0.0, lastClaudeClick = -99.0, lastEsc = -99.0
     var activeSince = 0.0, lastSitRemind = 0.0, lastTimeCheck = 0.0, lastDecay = 0.0, lastSulkLine = 0.0
-    var said = Set<String>()
+    var said = Swift.Set<String>()
     var aff = 50
     var fed: [Double] = []
 
@@ -141,7 +141,7 @@ final class PetForm: NSObject {
     var skin: Skin?
     var SKIN_LINE = B("#5E3B2C"), SKIN_FEET = B("#E99A8A"), SKIN_EYE = B("#1A1A1A"), SKIN_HAND = B("#F2B880")
     var skinBrushes: [Character: Brush] = [:]
-    var thinBrushes = Set<Brush>()
+    var thinBrushes = Swift.Set<Brush>()
     var cells: [[Brush?]] = []
     var outlineMark: [Bool] = []
     var BODY = B("#A9BBCF"), BODY_D = B("#8C9FB4")
@@ -186,10 +186,10 @@ final class PetForm: NSObject {
     let upgradeStamp = Fmt(Date(), "yyyyMMdd_HHmmss")
 
     // ---------- 检测 AI 工作 ----------
-    var appActive = Set<String>()
+    var appActive = Swift.Set<String>()
     var appLastSeen: [String: Double] = [:]
     var appStarted: [String: Double] = [:]
-    var cpuWas = Set<String>()
+    var cpuWas = Swift.Set<String>()
     var lastStopClick = -99.0
     var lastStopApp = ""
 
@@ -993,7 +993,7 @@ final class PetForm: NSObject {
         Say("唔……", 3)
         chatting = true
         let delay = Double(500 + rnd.Next(700) + min(1200, msg.count * 30)) / 1000
-        After(delay) { [weak self] in self?.chatting = false; self?.PetSays(text) }
+        Later(delay) { [weak self] in self?.chatting = false; self?.PetSays(text) }
     }
 
     func Quit() {

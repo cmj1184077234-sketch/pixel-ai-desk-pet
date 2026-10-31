@@ -657,7 +657,7 @@ enum ThingGen {
         pal["m"] = ToHexC(HexC(markColor, mark == "belly" || mark == "bottom_layer" ? MixC(b, Col.White, 0.55) : MulC(b, 0.72)))
         pal["t"] = ToHexC(t); pal["u"] = ToHexC(top == "curl" ? MulC(b, 0.6) : top == "flower" ? Col("#F6C744") : MulC(t, 0.72))
         pal["g"] = "#4F9A45"; pal["p"] = "#F7C6CC"; pal["q"] = "#DCE6EF"
-        var used = Set<String>()
+        var used = Swift.Set<String>()
         for row in g.c { for ch in row where ch != "." { used.insert(String(ch)) } }
         for k in Array(pal.keys) where !used.contains(k) { pal.removeValue(forKey: k) }
         var dd: Dict = [:]

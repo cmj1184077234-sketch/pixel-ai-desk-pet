@@ -251,7 +251,7 @@ enum Idle {
 func OnMain(_ f: @escaping () -> Void) { if Thread.isMainThread { f() } else { DispatchQueue.main.async(execute: f) } }
 func OnMainSync<T>(_ f: () -> T) -> T { if Thread.isMainThread { return f() }; return DispatchQueue.main.sync(execute: f) }
 func Background(_ f: @escaping () -> Void) { Thread.detachNewThread(f) }
-func After(_ sec: Double, _ f: @escaping () -> Void) { DispatchQueue.main.asyncAfter(deadline: .now() + sec, execute: f) }
+func Later(_ sec: Double, _ f: @escaping () -> Void) { DispatchQueue.main.asyncAfter(deadline: .now() + sec, execute: f) }
 
 /// 菜单项：用闭包处理点击
 final class MenuAction: NSObject {
