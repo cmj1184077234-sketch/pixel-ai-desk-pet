@@ -1,0 +1,30 @@
+name: Mac 版编译
+
+on:
+  push:
+    branches: [main, mac-dev]
+    paths: ["mac/**", "skins/**", "assets/**", ".github/workflows/mac.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - name: 编译 DingDing.app
+        run: bash mac/build.sh
+      - name: 上传编译结果
+        uses: actions/upload-artifact@v4
+        with:
+          name: DingDing-mac
+          path: mac/build/DingDing-mac.zip
+      - name: 更新测试版下载（mac-dev 分支）
+        if: github.ref == 'refs/heads/mac-dev'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release view mac-test >/dev/null 2>&1 || gh release create mac-test --prerelease --target mac-dev --title "Mac 测试版（还在开发中）" --notes "Mac 版叮叮的测试版，每次更新代码会自动重新编译。下载 DingDing-mac.zip，解压后右键点 DingDing 选「打开」。"
+          gh release upload mac-test mac/build/DingDing-mac.zip --clobber
