@@ -173,6 +173,10 @@ skins/                自带的形象（芽芽、布丁、饭团、云朵、墨�
 
 代码是 C# 5 + WinForms，由 PowerShell 的 `Add-Type` 现场编译，所以不需要 Visual Studio。
 
+## 遇到问题？
+
+用着哪里不对劲，就到 **[Issues 反馈栏](https://github.com/cmj1184077234-sketch/pixel-ai-desk-pet/issues/new/choose)** 里写一下（点「🐞 反馈问题」，照着填就行），看到了会尽快修好、更新版本。识别 AI 有问题时，附上右键「检测诊断」生成的「诊断结果.txt」会修得更快。
+
 ## 参与
 
 欢迎提 Issue 和 Pull Request：新的表情动作、更多 AI 应用的识别规则、Bug 修复都可以。提交前请确认没有带上自己的 `config.txt` 和个人数据。
