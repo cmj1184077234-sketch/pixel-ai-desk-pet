@@ -1,0 +1,39 @@
+# AI 像素桌宠的设置。第一次启动时会自动复制成 config.txt，之后改 config.txt 就行。
+# 改完后：右键桌宠 → 退出，再重新启动。
+#
+# ---- 名字 ----
+# 桌宠叫什么
+pet_name=叮叮
+# 它怎么称呼你
+my_name=你
+# 一句话描述它自己（接了 AI 聊天时，它会按这个来认识自己）
+pet_desc=一只戴红蝴蝶结的像素小铃铛精，AI 干完活就摇响自己叫人
+#
+# ---- 生日（月-日）----
+# 你的生日：那天它会换上生日装扮
+birthday=
+# 它自己的生日：不填就是它第一次来到你桌面的那天
+pet_birthday=
+#
+# ---- AI 大脑（推荐在右键菜单「AI 设置」里填，更方便）----
+# 不填也能聊：会用自带的离线小脑袋。key 只保存在你自己电脑的这个文件里，不要分享给别人。
+api_base=
+api_key=
+chat_model=
+quick_model=
+# anthropic（Claude / DeepSeek / Ollama）或 openai（智谱等）
+api_format=anthropic
+# 看图模型：聊天模型看不了图时用它来看图（留空 = 聊天模型自己看）。地址和格式留空就和上面一样
+vision_base=
+vision_format=
+vision_model=
+# 省 token 模式：on / off
+saver=on
+#
+# ---- 其他 ----
+# 默认形象（skins 文件夹里的名字；不填就是叮叮）
+skin=
+# 大小：2=小 3=中 4=大 5=特大
+size=3
+# 天气：on / off（用 wttr.in 查当地天气）
+weather=on

@@ -1,0 +1,11 @@
+# 个人设置和数据：里面可能有 API key、日记、记忆，不要上传
+config.txt
+错误日志.txt
+诊断结果.txt
+*的日记.txt
+*记得的事.txt
+*的事件记录.txt
+*.dll
+Thumbs.db
+.DS_Store
+src_backups/
