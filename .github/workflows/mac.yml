@@ -15,7 +15,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: 编译 DingDing.app
-        run: bash mac/build.sh
+        run: |
+          set -o pipefail
+          bash mac/build.sh 2>&1 | tee build.log
+      - name: 把编译报错存起来（方便查看）
+        if: failure()
+        run: |
+          grep -E "error:|warning: var|note:" build.log | head -300 > errors.txt || true
+          tail -50 build.log >> errors.txt
+          git config user.name ci; git config user.email ci@users.noreply.github.com
+          git checkout --orphan ci-log
+          git rm -rfq . >/dev/null
+          cp errors.txt e.txt; git add e.txt; git commit -qm "log ${{ github.sha }}"
+          git push -f origin ci-log
       - name: 上传编译结果
         uses: actions/upload-artifact@v4
         with:
