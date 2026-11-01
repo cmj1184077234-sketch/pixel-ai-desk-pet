@@ -33,9 +33,21 @@
 
 ## 30 秒上手
 
-1. 点这个页面上方绿色的 **Code → Download ZIP**，解压到任意文件夹。
-2. 双击 **`启动桌宠.vbs`**，等十几秒，叮叮就会跳到你的任务栏上。
-3. 右键叮叮 →「AI 设置」，填一个 AI 的 key（DeepSeek 很便宜，几块钱能聊很久），它就能陪你聊天了。不填也能用，它自带一个离线小脑袋。
+**Windows**：按 `Win + R`，输入 `powershell` 回车，粘贴这一行再回车：
+
+```powershell
+irm https://raw.githubusercontent.com/cmj1184077234-sketch/pixel-ai-desk-pet/main/install.ps1 | iex
+```
+
+**Mac**（测试版）：打开「终端」，粘贴这一行再回车：
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/cmj1184077234-sketch/pixel-ai-desk-pet/main/install-mac.sh | bash
+```
+
+装好后叮叮会自己跳出来。想让它陪你聊天：右键叮叮 →「AI 设置」，填一个 AI 的 key（DeepSeek 很便宜，几块钱能聊很久）。不填也能用，它自带一个离线小脑袋。
+
+> 💡 也可以直接跟会操作电脑的 AI 说：**“帮我安装 GitHub 上的 cmj1184077234-sketch/pixel-ai-desk-pet 桌宠”**，它会照着这页说明装好。
 
 ---
 
@@ -87,15 +99,23 @@
 
 ## 安装
 
-需要 **Windows 10 / 11**。用的是系统自带的 PowerShell 和 .NET Framework，不用装别的东西。
+### Windows（10 / 11）
 
-1. 点这个页面上方绿色的 **Code → Download ZIP**，解压到任意文件夹（比如「文档」里）。
-2. 双击 **`启动桌宠.vbs`**。
-3. 第一次启动要编译代码，大概等十几秒，桌宠就会出现在任务栏上方。
+用的是系统自带的 PowerShell 和 .NET Framework，不用装别的东西。
+
+- **一键安装**：运行上面「30 秒上手」里的那行命令，会装到「文档\DingDing」，并在桌面放一个「叮叮」快捷方式。以后再运行一次就是更新，你的设置和日记都会保留。
+- **手动安装**：点这个页面上方绿色的 **Code → Download ZIP**，解压到任意文件夹，双击 **`启动桌宠.vbs`**。第一次启动要编译代码，大概等十几秒。
 
 如果 Windows 提示「已保护你的电脑」，点「更多信息 → 仍要运行」。启动失败的话，原因会写在同文件夹的 `错误日志.txt` 里。
 
-想开机自动启动：右键桌宠 → 开机自动启动。
+### Mac（macOS 12 及以上，测试版）
+
+- **一键安装**：运行上面「30 秒上手」里的那行命令，会装到「应用程序」里并自动打开。
+- **手动安装**：在 [Releases](https://github.com/cmj1184077234-sketch/pixel-ai-desk-pet/releases/tag/mac-test) 下载 `DingDing-mac.zip`，解压后**右键点 DingDing →「打开」**（直接双击会被系统拦下）。
+
+装好后在「系统设置 → 隐私与安全性 → 辅助功能」里打开 DingDing，它才能发现 AI 做完了、摇铃叫你。
+
+想开机自动启动：右键叮叮 → 开机自动启动。
 
 ## 接上 AI 大脑（可选）
 
