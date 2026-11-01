@@ -14,7 +14,8 @@ Expand-Archive $zip -DestinationPath $tmp -Force
 $src = Join-Path $tmp 'pixel-ai-desk-pet-main'
 New-Item -ItemType Directory -Force -Path $dest | Out-Null
 # 已经装过的话只更新程序，你的 config.txt、日记、记忆都会保留
-Copy-Item (Join-Path $src '*') $dest -Recurse -Force
+robocopy $src $dest /E /NFL /NDL /NJH /NJS /NP | Out-Null
+if ($LASTEXITCODE -ge 8) { throw '复制文件失败了' }
 Get-ChildItem $dest -Recurse -File | Unblock-File
 Remove-Item $tmp -Recurse -Force -ErrorAction SilentlyContinue
 $vbs = Join-Path $dest '启动桌宠.vbs'
